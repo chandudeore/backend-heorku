@@ -18,7 +18,7 @@ app.get("/demo", async (req, res) => {
   }
 });
 
-app.use("/product", productController);
+app.use("", productController);
 
 app.listen(port, async () => {
   try {
