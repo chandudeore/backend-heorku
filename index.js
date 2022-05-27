@@ -1,4 +1,6 @@
 const express = require("express");
+const connect = require("./config/db");
+const productController = require("./controllers/product.controller");
 
 const app = express();
 
@@ -14,8 +16,11 @@ app.get("/demo", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
+app.use("/product", productController);
+
+app.listen(port, async () => {
   try {
+    await connect();
     console.log("Listening on port 4000");
   } catch (err) {
     console.log(err);
