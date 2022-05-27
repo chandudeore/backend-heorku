@@ -4,6 +4,8 @@ const app = express();
 
 app.use(express.json());
 
+const port = process.env.PORT || 5000;
+
 app.get("/demo", async (req, res) => {
   try {
     return res.json({ message: "Hello Chandrakant Deore" });
@@ -12,7 +14,7 @@ app.get("/demo", async (req, res) => {
   }
 });
 
-app.listen(4000, () => {
+app.listen(port, () => {
   try {
     console.log("Listening on port 4000");
   } catch (err) {
